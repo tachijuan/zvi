@@ -238,6 +238,20 @@ static void show_loading(void)
 }
 
 /*
+ * Show the [Auto-saving to swap...] indicator on the status line.
+ * The caller's subsequent scr_refresh() will overwrite it.
+ */
+static void show_swapping(void)
+{
+    term_goto(ed.scr_rows - 1, 0);
+    term_clreol();
+    term_reverse();
+    term_puts("[Auto-saving to swap...]");
+    term_normal();
+    term_flush();
+}
+
+/*
  * Inner read loop shared by gb_load and gb_reload_from.
  * Reads chars from f into the gap buffer until EOF/^Z or the buffer fills.
  * On partial fill: records tail offset; if filename != NULL also sets
@@ -322,6 +336,13 @@ static int gb_discard_head(int n)
         }
         new_win++;
     }
+
+    if (ed.modified) {
+        show_swapping();
+        gb_save("ZVISWAP.TMP");
+        ed.modified = 0;
+    }
+
     gb_delete(0, discard);
     ed.win_start = new_win;
     ed.cur_pos  -= discard;
@@ -384,6 +405,12 @@ int gb_reload_from(long offset)
 
     if (!ed.tail_file[0]) return 0;
     if (offset < 0L) offset = 0L;
+
+    if (ed.modified) {
+        show_swapping();
+        gb_save("ZVISWAP.TMP");
+        ed.modified = 0;
+    }
 
     f = z_fopen(ed.tail_file, "rb");
     if (!f) return 0;

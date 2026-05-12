@@ -211,11 +211,14 @@ int z_remove(const char *name)
 int z_rename(const char *oldname, const char *newname)
 {
     unsigned char fcb[36];
+    unsigned char temp_fcb[36];
+    int i;
     if (!parse_filename(fcb, oldname)) return -1;
+    if (!parse_filename(temp_fcb, newname)) return -1;
     /* Rename expects old name in first 16 bytes, new name in second 16 bytes */
-    if (!parse_filename(fcb + 16, newname)) return -1;
-    /* The second parse_filename writes to drive byte at offset 16 */
-    /* CP/M expects the new filename at offset 17, and ignores the drive byte at 16 */
+    for (i = 0; i < 16; i++) {
+        fcb[16 + i] = temp_fcb[i];
+    }
     bdos(23, (unsigned)fcb);
     return 0;
 }

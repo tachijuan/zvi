@@ -29,6 +29,7 @@
  */
 
 #include "zvi.h"
+#include <string.h>
 #include "zfmt.h"
 
 extern Editor ed;
@@ -587,7 +588,7 @@ void scr_show_status(char *msg)
             else
                 _p = z_str(_p, "[No Name]");
             *_p++ = '"';
-            if (ed.modified) _p = z_str(_p, " [+]");
+            if (ed.modified || strcmp(ed.tail_file, "ZVISWAP.TMP") == 0) _p = z_str(_p, " [+]");
             _p = z_str(_p, " L");
             _p = z_int(_p, cur);
             *_p++ = '/';

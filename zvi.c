@@ -128,5 +128,6 @@ int main(void)
     term_restore();
 
     gb_free();
+    z_remove("ZVISWAP.TMP");
     return 0;
 }

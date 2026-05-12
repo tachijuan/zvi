@@ -133,7 +133,7 @@ int ex_execute(char *cmd)
             z_set(ed.status, "Usage: :e[!] filename");
             return 0;
         }
-        if (ed.modified && !force) {
+        if ((ed.modified || strcmp(ed.tail_file, "ZVISWAP.TMP") == 0) && !force) {
             z_set(ed.status, "Modified buffer (use :e! to discard)");
             return 0;
         }
@@ -214,7 +214,7 @@ int ex_execute(char *cmd)
     }
 
     if (do_quit) {
-        if (ed.modified && !force && !do_write) {
+        if ((ed.modified || strcmp(ed.tail_file, "ZVISWAP.TMP") == 0) && !force && !do_write) {
             z_set(ed.status, "Modified buffer (use :q! to discard)");
             return 0;
         }

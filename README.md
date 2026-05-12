@@ -233,14 +233,11 @@ On every `:w` save:
 4. A `Ctrl-Z` (0x1A) terminator is written last.
 
 When saving to the same filename that holds the tail, ZVI writes to a temporary
-file `ZVITMP.TMP` first, then replaces the original, so tail data is never
-overwritten before it is read.
-
-**Limitation (Data Loss Warning):** Edits are ONLY safely maintained within the current in-memory window. ZVI does *not* automatically save edits to disk when scrolling. 
-- If you edit text at the top of the buffer and then scroll so far forward that those edits are discarded to make room for new text, **those edits are lost**.
-- If you scroll backwards (`Ctrl-B`) or jump to a previous line outside the buffer, ZVI reloads the buffer from disk and **all unsaved edits are instantly discarded**.
-
-Always save your work with `:w` before doing large scrolls or jumping around in files larger than the buffer!
+**Seamless Large File Edits:** ZVI now supports robust, seamless edits for files of any size. If you modify text and then scroll past the gap buffer boundaries (e.g., scrolling far forward, or jumping backwards with `Ctrl-B` / `G`), ZVI will automatically dump your unsaved changes to a temporary swap file (`ZVISWAP.TMP`). 
+- When this happens, `[Auto-saving to swap...]` will briefly flash on your status bar. 
+- The `[+]` indicator will remain on the status line to remind you that the swap file is active and contains uncommitted edits. 
+- When you execute `:w`, ZVI seamlessly reconstructs your file from the swap data and your original file. 
+- ZVI will prevent you from quitting (`:q`) or loading a new file (`:e`) if you have uncommitted swap data, unless you force it with `!`.
 
 ---
 
