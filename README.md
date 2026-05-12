@@ -214,7 +214,7 @@ status display as soon as the screen is refreshed after the load completes.
 ## Large File Support
 
 ZVI can open and edit files larger than available RAM. At startup it allocates
-the largest single block available (up to ~28 KB on a typical CP/M system) and
+the largest single block available (typically ~20 KB on a CP/M system) and
 loads as much of the file as fits, recording the byte offset where loading
 stopped.
 
@@ -236,9 +236,11 @@ When saving to the same filename that holds the tail, ZVI writes to a temporary
 file `ZVITMP.TMP` first, then replaces the original, so tail data is never
 overwritten before it is read.
 
-**Limitation:** edits are restricted to the portion of the file currently in
-the buffer. Content that has scrolled off the front or not yet been loaded from
-the tail is preserved unchanged on save.
+**Limitation (Data Loss Warning):** Edits are ONLY safely maintained within the current in-memory window. ZVI does *not* automatically save edits to disk when scrolling. 
+- If you edit text at the top of the buffer and then scroll so far forward that those edits are discarded to make room for new text, **those edits are lost**.
+- If you scroll backwards (`Ctrl-B`) or jump to a previous line outside the buffer, ZVI reloads the buffer from disk and **all unsaved edits are instantly discarded**.
+
+Always save your work with `:w` before doing large scrolls or jumping around in files larger than the buffer!
 
 ---
 
