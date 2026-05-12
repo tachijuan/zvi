@@ -483,18 +483,31 @@ the in-memory content is written (with
 .B CR+LF
 line endings), and the unloaded tail is appended.
 When saving back to the same file, an intermediate temporary file
-.RB ( ZVITMP.TMP )
-is used to avoid reading and writing the same file simultaneously.
 .PP
-.B CRITICAL LIMITATION (DATA LOSS WARNING):
-Edits are ONLY safely maintained within the current in-memory window.
-ZVI does not automatically save edits to disk when scrolling.
-If you edit text and then scroll so far forward that those edits are discarded
-to make room for new text, your edits are permanently lost.
-Additionally, if you scroll backwards (Ctrl-B) or jump to an unloaded line,
-ZVI completely reloads the buffer from disk, which instantly discards all
-unsaved edits.
-.B Always save your work with :w before doing large scrolls!
+.B SEAMLESS LARGE FILE EDITS:
+ZVI robustly supports edits for files of any size without data loss.
+If you modify text and then scroll past the gap buffer boundaries (e.g.,
+scrolling far forward, or jumping backwards with Ctrl-B or G), ZVI will
+automatically dump your unsaved changes to a temporary swap file
+.RB ( ZVISWAP.TMP ).
+.PP
+When this happens,
+.B [Auto-saving to swap...]
+will briefly flash on your status bar. The
+.B [+]
+indicator will remain on the status line to remind you that the swap file
+is active and contains uncommitted edits.
+.PP
+When you execute
+.B :w
+, ZVI seamlessly reconstructs your file from the swap data and your original file.
+ZVI will prevent you from quitting
+.B (:q)
+or loading a new file
+.B (:e)
+if you have uncommitted swap data, unless you force it with
+.B !
+.
 .\"
 .\" ----------------------------------------------------------------
 .SH TERMINAL REQUIREMENTS
@@ -643,6 +656,11 @@ No window splitting or multiple buffers.
 Temporary file created in the current directory during a save when the
 source and destination file are the same and a tail exists.
 Removed automatically after a successful save.
+.TP
+.B ZVISWAP.TMP
+Swap file created automatically to preserve unsaved edits when scrolling
+past the current gap buffer boundaries in large files.
+Removed automatically upon editor exit.
 .\"
 .\" ----------------------------------------------------------------
 .SH AUTHOR
