@@ -1,0 +1,6 @@
+target/gb/**/*.asm
+@classic/gfx/gencon/gfx_gencon_portable.lst
+@classic/stdio/stdio.lst
+
+@classic/games/games.lst
+

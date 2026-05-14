@@ -1,0 +1,6 @@
+target/sol20/obj/${TARGET}/**/*.o
+@classic/video/vdm/video_vdm.lst
+@classic/stdio/stdio.lst
+@classic/games/games.lst
+
+

@@ -1,0 +1,9 @@
+target/sv8000/obj/${TARGET}/**/*.o
+
+@classic/video/mc6847/mc6847.lst
+@classic/stdio/stdio.lst
+@classic/gfx/narrow/gfx_narrow.lst
+sound/ay/obj/${TYPE}/**/*.o
+target/sv8000/games/joystick
+@classic/games/games.lst
+

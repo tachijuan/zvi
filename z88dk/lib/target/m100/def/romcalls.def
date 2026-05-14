@@ -1,0 +1,28 @@
+; M100 family  firmware macros and defs
+; Applicable to American M100/M102 ONLY (probably, I've never seen any European M100)
+; Nov 2020
+;
+; M100 system ROM aka firmware can be called in atleast a couple of ways
+; If we're calling it from OPTROM made with Stephen Adolph's template, we do
+; RST 6; DEFW ROM_ADDR
+; And if we're calling from normal RAM, then we simply do CALL ROM_ADDR
+
+; With ROMCALL macro, all ROM calls (except RSTs) can be abstracted into
+; ROMCALL; DEFW ROM_ADDR
+; ...and be conditionally compiled depending on the subtype we use.
+
+    EXTERN  ROMCALL_OP ; it's defined in m100_crt0.asm
+#define ROMCALL defb ROMCALL_OP
+	
+; ROM calls (defined in -subtype specific file)
+    EXTERN  KYREAD
+    EXTERN  KYPEND
+
+    EXTERN  CLS
+    EXTERN  CHROUT
+    EXTERN  CURPOS
+    EXTERN  CURSON
+    EXTERN  CURSOFF
+    EXTERN  BEEP
+    EXTERN  LCDSET
+    EXTERN  LCDRES

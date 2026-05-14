@@ -1,0 +1,5 @@
+target/pv1000/obj/${TARGET}/**/*.o
+@classic/stdio/stdio.lst
+classic/games/obj/pv1000/joystick_type
+@classic/gfx/gencon/gfx_gencon.lst
+

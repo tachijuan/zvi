@@ -1,0 +1,8 @@
+target/laser500/obj/${TARGET}/**/*.o
+classic/stdio/obj/${TYPE}/inkey/fgetc_cons
+classic/stdio/obj/${TYPE}/inkey/getk
+@classic/stdio/stdio.lst
+@classic/gfx/wide/gfx_wide.lst
+@classic/games/games.lst
+classic/games/obj/laser500/joystick_type
+

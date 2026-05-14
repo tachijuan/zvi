@@ -1,0 +1,3 @@
+target/dai/obj/${TARGET}/**/*.o
+@classic/stdio/stdio.lst
+

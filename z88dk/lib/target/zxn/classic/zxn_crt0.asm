@@ -1,0 +1,115 @@
+;       Options:
+;
+;      CRT_ORG_CODE = start address
+;      CRT_ORG_BSS = address for bss variables
+;      CRT_MODEL   = 0 (RAM), 1 = (ROM, code copied), 2 = (ROM, code compressed)
+
+
+    MODULE  zxn_crt0
+
+
+    defc    crt0 = 1
+    INCLUDE "zcc_opt.def"
+
+
+    EXTERN  _main           ; main() is always external to crt0 code
+
+    PUBLIC  __Exit         ; jp'd to by exit()
+    PUBLIC  l_dcal          ; jp(hl)
+
+    PUBLIC  call_rom3       ; Interposer
+
+
+    PUBLIC  __SYSVAR_BORDCR
+    defc    __SYSVAR_BORDCR = 23624
+
+    PUBLIC  __IO_NEXTREG_REG
+    defc __IO_NEXTREG_REG = 0x243b
+
+    ; Always use segment 3 - otherwise we have to redo all the orgs for the banks
+    PUBLIC  CLIB_BANKING_SEGMENT
+    defc    CLIB_BANKING_SEGMENT = 3
+
+
+
+    PUBLIC    _FRAMES
+    IF startup != 2
+        defc  _FRAMES = 23672 ; Timer	
+    ENDIF
+    
+    ; We default to the 64 column terminal driver
+    ; Check whether to default to 32 column display
+    defc    CONSOLE_ROWS = 24
+    IF !DEFINED_CLIB_ZX_CONIO32
+        defc    CLIB_ZX_CONIO32 = 0
+        defc    CONSOLE_COLUMNS = 64
+    ELSE
+        defc    CONSOLE_COLUMNS = 32
+    ENDIF
+    PUBLIC  __CLIB_ZX_CONIO32
+    defc    __CLIB_ZX_CONIO32 = CLIB_ZX_CONIO32
+
+    IFNDEF CLIB_FGETC_CONS_DELAY
+        defc CLIB_FGETC_CONS_DELAY = 100
+    ENDIF
+
+    ; What 8k page does the layer2 display start on?
+    IF !DEFINED_CLIB_ZXN_LAYER2_BASE
+        defc CLIB_ZXN_LAYER2_BASE = 0x12
+    ENDIF
+    PUBLIC __CLIB_ZXN_LAYER2_BASE
+    defc   __CLIB_ZXN_LAYER2_BASE = CLIB_ZXN_LAYER2_BASE
+
+
+    defc    CRT_KEY_DEL = 12
+    defc    __CPU_CLOCK = 3500000
+
+
+
+    PUBLIC __IO_LAYER_2_CONFIG
+
+    PUBLIC __IL2C_ENABLE_LOWER_16K
+    PUBLIC __IL2C_SHOW_LAYER_2
+    PUBLIC __IL2C_SELECT_SHADOW_BUFFER
+    PUBLIC __IL2C_BANK_SELECT_MASK
+    PUBLIC __IL2C_BANK_SELECT_0
+    PUBLIC __IL2C_BANK_SELECT_1
+    PUBLIC __IL2C_BANK_SELECT_2
+    
+    INCLUDE     "target/zxn/def/zxn.h"
+
+    INCLUDE     "target/zxn/def/colours.def"
+
+IF __ESXDOS_DOT_COMMAND
+    INCLUDE	"target/zxn/classic/dot_crt0.asm"
+ELSE
+    INCLUDE	"target/zxn/classic/ram_crt0.asm"
+ENDIF
+
+
+; Runtime selection
+
+IF NEED_fzxterminal
+    PUBLIC  fputc_cons
+    PUBLIC  _fputc_cons
+    PUBLIC  _fgets_cons_erase_character
+    PUBLIC  fgets_cons_erase_character
+    EXTERN  fputc_cons_fzx
+    EXTERN  fgets_cons_erase_character_fzx
+    defc    DEFINED_fputc_cons = 1
+    defc    fputc_cons = fputc_cons_fzx
+    defc    _fputc_cons = fputc_cons_fzx
+    defc    fgets_cons_erase_character = fgets_cons_erase_character_fzx
+    defc    _fgets_cons_erase_character = fgets_cons_erase_character_fzx
+ENDIF
+
+    PUBLIC __CLIB_TILES_PALETTE_SET_INDEX
+IFDEF CLIB_TILES_PALETTE_SET_INDEX
+    defc __CLIB_TILES_PALETTE_SET_INDEX = CLIB_TILES_PALETTE_SET_INDEX
+ELSE
+    defc __CLIB_TILES_PALETTE_SET_INDEX = 1
+ENDIF
+
+
+
+

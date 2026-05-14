@@ -1,0 +1,8 @@
+
+
+
+; Values uses by library
+
+                defc    MODE_TEXT = 0
+                defc    MODE_HIRES = $8e
+                defc    MODE_MULTICOLOUR = $8a

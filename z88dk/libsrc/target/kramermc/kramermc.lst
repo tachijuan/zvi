@@ -1,0 +1,4 @@
+target/kramermc/obj/${TARGET}/**/*.o
+@classic/stdio/stdio.lst
+@classic/gfx/gencon/gfx_gencon1.lst
+

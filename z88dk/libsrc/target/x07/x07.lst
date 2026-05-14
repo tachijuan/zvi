@@ -1,0 +1,4 @@
+target/x07/obj/x07/**/*.o
+@classic/gfx/narrow/gfx_narrow.lst
+@classic/stdio/stdio.lst
+@classic/games/games.lst

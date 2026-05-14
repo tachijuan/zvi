@@ -1,0 +1,8 @@
+target/gl6000/obj/${TARGET}/**/*.o
+@classic/stdio/stdio.lst
+classic/stdio/obj/${TYPE}/inkey/fgetc_cons
+classic/stdio/obj/${TYPE}/inkey/getk
+classic/gfx/narrow/obj/gl6000/stencil_render
+classic/gfx/narrow/obj/gl6000/putsprite
+@classic/gfx/narrow/gfx_narrow.lst
+@classic/games/games.lst

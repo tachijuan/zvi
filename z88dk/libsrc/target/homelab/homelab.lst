@@ -1,0 +1,8 @@
+target/homelab/obj/${TARGET}/**/*.o
+
+@classic/stdio/stdio.lst
+classic/stdio/obj/${TYPE}/inkey/getk
+classic/stdio/obj/${TYPE}/inkey/fgetc_cons
+@classic/games/games.lst
+@classic/gfx/gencon/gfx_gencon.lst
+

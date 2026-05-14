@@ -1,0 +1,6 @@
+target/gemini/obj/${TARGET}/**/*.o
+
+@classic/stdio/ansicore.lst
+@classic/stdio/stdio.lst
+@classic/gfx/narrow/gfx_narrow.lst
+@classic/games/games.lst

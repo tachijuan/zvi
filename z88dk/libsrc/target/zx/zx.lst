@@ -1,0 +1,12 @@
+target/zx/obj/zx/**/*.o
+@classic/stdio/ansicore.lst
+@classic/stdio/stdio.lst
+font/fzx/obj/${TYPE}/**/*.o
+
+@classic/games/games.lst
+sound/ay/obj/${TYPE}/**/*.o
+classic/gfx/narrow/obj/${TARGET}/fillarea2
+classic/gfx/narrow/obj/${TARGET}/xorclrarea2
+classic/gfx/narrow/obj/${TARGET}/stencil_render
+@classic/gfx/narrow/gfx_narrow.lst
+

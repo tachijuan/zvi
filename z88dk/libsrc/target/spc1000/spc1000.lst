@@ -1,0 +1,12 @@
+target/spc1000/obj/${TARGET}/**/*.o
+
+classic/stdio/obj/${TYPE}/inkey/fgetc_cons
+classic/stdio/obj/${TYPE}/inkey/getk
+@classic/video/mc6847/mc6847.lst
+@classic/stdio/stdio.lst
+@classic/input/input_keyboard.lst
+@classic/games/games.lst
+@classic/gfx/narrow/gfx_narrow.lst
+@classic/video/tms9918/video_tms9918.lst
+sound/ay/obj/${TYPE}/**/*.o
+

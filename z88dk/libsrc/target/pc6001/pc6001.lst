@@ -1,0 +1,11 @@
+
+
+@classic/video/mc6847/mc6847.lst
+target/pc6001/obj/${TARGET}/**/*.o
+@classic/stdio/ansicore.lst
+@classic/stdio/stdio.lst
+
+classic/games/obj/pc6001/joystick_type
+@classic/gfx/narrow/gfx_narrow.lst
+sound/ay/obj/${TYPE}/**/*.o
+

@@ -1,0 +1,4 @@
+target/zx/obj/zxcpm/**/*.o
+@classic/gfx/narrow/gfx_narrow.lst
+@classic/games/games.lst
+sound/ay/obj/${TYPE}/**/*.o

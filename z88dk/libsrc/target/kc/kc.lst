@@ -1,0 +1,13 @@
+target/kc/obj/${TARGET}/**/*.o
+
+@classic/stdio/stdio.lst
+classic/games/obj/${TARGET}/joystick
+classic/gfx/wide/obj/${TARGET}/w_putsprite
+classic/gfx/wide/obj/${TARGET}/w_stencil_render
+classic/gfx/wide/obj/${TARGET}/w_clga_callee_smc
+classic/gfx/wide/obj/${TARGET}/w_xorclga_callee_smc
+classic/gfx/wide/obj/${TARGET}/w_fillb_callee_smc
+classic/gfx/wide/obj/${TARGET}/w_dcircle_square
+@classic/gfx/wide/gfx_wide.lst
+@classic/games/games_joystick.lst
+

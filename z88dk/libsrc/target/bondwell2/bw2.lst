@@ -1,0 +1,5 @@
+target/bondwell2/obj/${TARGET}/**/*.o
+
+@classic/gfx/wide/gfx_wide.lst
+@classic/video/msm6255/msm6255.lst
+@classic/games/games.lst

@@ -1,0 +1,5 @@
+target/lynx/obj/${TARGET}/**/*.o
+@classic/stdio/stdio.lst
+@classic/gfx/gencon/gfx_gencon.lst
+@classic/video/mc6845/mc6845.lst
+@classic/games/games.lst

@@ -1,0 +1,3 @@
+target/sos/obj/${TARGET}/**/*.o
+@classic/stdio/stdio.lst
+@classic/games/games.lst

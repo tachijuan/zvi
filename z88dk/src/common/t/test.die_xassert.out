@@ -1,0 +1,4 @@
+stdout:
+stderr:
+Test: Assertion failed: 0, file t/t_xassert.c, line 12
+exit: 1

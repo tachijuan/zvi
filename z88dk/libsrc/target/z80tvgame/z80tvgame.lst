@@ -1,0 +1,6 @@
+target/z80tvgame/obj/${TARGET}/**/*.o
+
+@classic/stdio/stdio.lst
+@classic/games/games.lst
+@classic/gfx/narrow/gfx_narrow.lst
+

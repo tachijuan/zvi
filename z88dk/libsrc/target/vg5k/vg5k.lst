@@ -1,0 +1,10 @@
+target/vg5k/obj/${TARGET}/**/*.o
+
+@classic/stdio/ansicore.lst
+classic/stdio/obj/${TYPE}/ansi/generic/f_ansi_cls
+classic/stdio/obj/${TYPE}/ansi/generic/f_ansi_dline
+@classic/stdio/stdio.lst
+
+@classic/input/input_keyboard.lst
+@classic/gfx/gencon/gfx_gencon6.lst
+@classic/games/games.lst

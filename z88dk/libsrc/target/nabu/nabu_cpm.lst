@@ -1,0 +1,15 @@
+@classic/stdio/ansicore.lst
+
+@classic/video/tms9918/video_tms9918.lst
+@classic/stdio/stdio.lst
+@classic/gfx/narrow/gfx_narrow.lst
+target/nabu/psg/asm_vt2_hardware_out
+target/nabu/psg/set_psg_callee
+target/nabu/psg/psg_init
+target/nabu/psg/asm_wyz_hardware_out
+target/nabu/psg/set_psg
+target/nabu/psg/get_psg
+sound/ay/obj/${TYPE}/**/*.o
+target/nabu/games/joystick.asm
+target/nabu/games/paddle.asm
+@classic/games/games.lst

@@ -1,0 +1,136 @@
+	ld	a,(hl)
+	inc	hl
+	ld	h,(hl)
+	ld	l,a
+=
+	ld	hl,(hl)
+
+	ld	c,(hl)
+	inc	hl
+	ld	b,(hl)
+=
+	ld	bc,(hl)
+	inc	hl
+
+	ld	e,(hl)
+	inc	hl
+	ld	d,(hl)
+=
+	ld	de,(hl)
+	inc	hl
+
+	call	l_gint
+=
+	ld	hl,(hl)
+
+	call	l_gint	;
+=
+	ld	hl,(hl)
+
+	call	l_gintsp	;
+=
+	add	hl,sp
+	ld	hl,(hl)
+
+	call	l_gintspsp	;
+=
+	add	hl,sp
+	ld	hl,(hl)
+	push	hl
+
+	call	l_pint
+=
+	ex	de,hl
+	ld	(hl),de
+	ex	de,hl
+
+	call	l_pint_pop
+=
+	pop	de
+	ex	de,hl
+	ld	(hl),de
+ 	ex	de,hl
+
+	call	l_glonghlp	;too long
+=
+	ld	hl,(hl)
+	ld	de,(hl)
+	inc	hl
+	inc	hl
+	ld	hl,(hl)
+	ex	de,hl
+
+	call	l_glong	;too long
+=
+	ld	de,(hl)
+	inc	hl
+	inc	hl
+	ld	hl,(hl)
+	ex	de,hl
+
+	call	l_glong2sp_hlp	;too long
+=
+	ld	hl,(hl)
+	ld	de,(hl)
+	inc	hl
+	inc	hl
+	ld	hl,(hl)
+	push	hl
+	push	de
+
+	call	l_glong2sp	;too long
+=
+	ld	de,(hl)
+	inc	hl
+	inc	hl
+	ld	hl,(hl)
+	push	hl
+	push	de
+
+	ld	(hl),e
+	inc	hl
+	ld	(hl),d
+=
+	ld	(hl),de
+
+	ex	de,hl
+	jp	%1	;EOS
+=
+	jp	%1	;EOS
+
+	ex	de,hl
+	ld	hl,(_%1)
+	ex	de,hl
+	ld	(hl),de
+=
+	ld	de,(_%1)
+	ld	(hl),de
+
+	ex	de,hl
+	ex	de,hl
+=
+
+
+%title  Cleanup after ez80 optimisation
+	inc	hl
+	ld	hl,%1	;const
+=
+	ld	hl,%1	;const
+
+%title Optimise stack increment
+	inc	(hl)
+	ld	a,(hl)
+	inc	hl
+	jr	nz,ASMPC+3
+	inc	(hl)
+	ld	h,(hl)
+	ld	l,a
+	dec	hl
+	pop	de
+=
+	ld	de,(hl)
+	inc	de
+	ld	(hl),de
+	dec	de
+	ex	de,hl
+	pop	de

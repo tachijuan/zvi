@@ -1,0 +1,11 @@
+target/lm80c/obj/${TARGET}/**/*.o
+
+
+@classic/stdio/ansicore.lst
+
+@classic/video/tms9918/video_tms9918_nmi.lst
+@classic/stdio/stdio.lst
+@classic/gfx/narrow/gfx_narrow.lst
+sound/ay/obj/${TYPE}/**/*.o
+@classic/games/games.lst
+

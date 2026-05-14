@@ -1,0 +1,5 @@
+target/gl/obj/${TARGET}/**/*.o
+@classic/stdio/stdio.lst
+@classic/video/hd44780/video_hd44780.lst
+@classic/games/games.lst
+

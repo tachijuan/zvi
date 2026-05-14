@@ -1,0 +1,6 @@
+target/attache/obj/${TARGET}/**/*.o
+
+classic/gfx/wide/obj/attache/w_dcircle_square
+@classic/gfx/wide/gfx_wide.lst
+sound/ay/obj/${TYPE}/**/*.o
+@classic/games/games_joystick.lst

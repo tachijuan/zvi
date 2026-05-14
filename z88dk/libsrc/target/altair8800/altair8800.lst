@@ -1,0 +1,5 @@
+target/altair8800/obj/${TARGET}/**/*.o
+
+@classic/stdio/stdio.lst
+
+

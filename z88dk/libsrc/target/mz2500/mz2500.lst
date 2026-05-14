@@ -1,0 +1,3 @@
+target/mz2500/obj/${TARGET}/**/*.o
+@classic/stdio/stdio.lst
+@classic/games/games.lst

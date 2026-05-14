@@ -1,0 +1,9 @@
+target/vz/obj/**/*.o
+
+@classic/video/mc6847/mc6847.lst
+@classic/stdio/ansicore.lst
+@classic/stdio/stdio.lst
+
+@classic/gfx/narrow/gfx_narrow.lst
+@classic/games/games.lst
+

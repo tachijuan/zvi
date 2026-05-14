@@ -1,0 +1,13 @@
+close
+lseek
+mkdir
+fsync
+open
+read
+readbyte
+remove
+rename
+fdtell
+write
+writebyte
+stat

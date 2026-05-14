@@ -1,0 +1,3 @@
+target/c7420/obj/${TARGET}/**/*.o
+@classic/stdio/stdio.lst
+

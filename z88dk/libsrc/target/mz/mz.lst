@@ -1,0 +1,8 @@
+target/mz/obj/${TARGET}/**/*.o
+@classic/stdio/ansicore.lst
+classic/stdio/obj/${TYPE}/ansi/generic/f_ansi_dline
+@classic/stdio/stdio.lst
+sound/sn76489/obj/${TYPE}/**/*.o
+@classic/gfx/narrow/gfx_narrow.lst
+@classic/games/games.lst
+

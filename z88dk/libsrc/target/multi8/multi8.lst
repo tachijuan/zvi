@@ -1,0 +1,7 @@
+target/multi8/obj/${TARGET}/**/*.o
+
+@classic/stdio/stdio.lst
+@classic/gfx/wide/gfx_wide.lst
+sound/ay/obj/${TYPE}/**/*.o
+@classic/games/games_joystick.lst
+

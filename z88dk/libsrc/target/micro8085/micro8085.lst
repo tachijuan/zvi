@@ -1,0 +1,2 @@
+target/micro8085/obj/${TARGET}/**/*.o
+@classic/stdio/stdio.lst

@@ -1,0 +1,4 @@
+stdout:
+stderr:
+Test: memory allocation error at t/t_xmalloc.c:12
+exit: 1

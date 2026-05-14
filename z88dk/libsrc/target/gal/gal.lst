@@ -1,0 +1,7 @@
+target/gal/obj/${TARGET}/**/*.o
+@classic/stdio/stdio.lst
+@classic/stdio/ansicore.lst
+@classic/gfx/narrow/gfx_narrow.lst
+@classic/games/games.lst
+sound/ay/obj/${TYPE}/**/*.o
+

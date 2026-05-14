@@ -1,0 +1,7 @@
+target/abc800/obj/${TARGET}/**/*.o
+
+@classic/stdio/stdio.lst
+@classic/gfx/narrow/gfx_narrow.lst
+classic/games/obj/${TARGET}/joystick
+classic/games/obj/${TARGET}/joystick_type
+

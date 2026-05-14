@@ -1,0 +1,8 @@
+target/z88/obj/**/*.o
+
+@classic/stdio/ansicore.lst
+@classic/stdio/stdio.lst
+@classic/stdio/stdio_net.lst
+@classic/games/games.lst
+@classic/gfx/wide/gfx_wide.lst
+@classic/input/input_keyboard.lst

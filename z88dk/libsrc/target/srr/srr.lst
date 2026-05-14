@@ -1,0 +1,5 @@
+target/srr/obj/${TARGET}/**/*.o
+
+@classic/stdio/stdio.lst
+@classic/gfx/gencon/gfx_gencon.lst
+@classic/games/games.lst

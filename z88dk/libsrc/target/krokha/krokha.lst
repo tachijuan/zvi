@@ -1,0 +1,6 @@
+target/krokha/obj/${TARGET}/**/*.o
+@classic/games/games.lst
+@classic/gfx/gencon/gfx_gencon_portable.lst
+@classic/stdio/stdio.lst
+
+
