@@ -1,5 +1,16 @@
 # ZVI - VI Clone for CP/M
 
+# ** THIS IS NOT BEING WORKED ON **
+
+The most current, capable, and better test version is found here: https://github.com/tachijuan/hvi
+
+At some future point, I might come back and make ZVI on par with HVI, but HVI has proven to be highly capable and meets my size, performance, and functionality requirements. It's also fully self hosted on CP/M.  ZVI requires the z88dk cross assembly path. My original goal with ZVI was to see if I could use a more modern compiler to reduce the binary size better than the native builds with HiTech. It's still likely that this is true, but I'm focusing my time and energy on the original HVI. 
+
+
+
+----
+
+
 **Version 2.0**
 
 A lightweight VI-compatible editor for CP/M 2.2 and CP/M 3.0, built with the Z88DK SDCC toolchain. Uses a gap buffer for efficient editing and ANSI escape sequences
